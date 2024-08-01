@@ -1,0 +1,44 @@
+[
+  {
+    "name": "old-chair.glb",
+    "sections": [
+      {
+        "description": "Frame",
+        "meshName": "mesh_0",
+        "textures": [
+          {
+            "name": "Texture 1",
+            "path": "texture1.jpg",
+            "thumbnailPath": "src/assets/texture1.jpg"
+          },
+          {
+            "name": "Texture 2",
+            "path": "texture2.jpg",
+            "thumbnailPath": "src/assets/texture2.jpg"
+          },
+          {
+            "name": "Texture 3",
+            "path": "texture3.jpg",
+            "thumbnailPath": "src/assets/texture3.jpg"
+          }
+        ]
+      },
+      {
+        "description": "Cushions",
+        "meshName": "mesh_0",
+        "textures": [
+          {
+            "name": "Texture 1",
+            "path": "texture1.jpg",
+            "thumbnailPath": "src/assets/texture1.jpg"
+          },
+          {
+            "name": "Texture 2",
+            "path": "texture2.jpg",
+            "thumbnailPath": "src/assets/texture2.jpg"
+          }
+        ]
+      }
+    ]
+  }
+]
