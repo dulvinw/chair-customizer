@@ -5,13 +5,12 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 interface Props {
   modelPath: string;
-  texturePath: string;
-  meshName: string;
+  pref: any[]
 }
 
 const assetsPathPrefix: string = '../assets/';
 
-const Renderer: React.FC<Props> = ({ modelPath, texturePath, meshName }) => {
+const Renderer: React.FC<Props> = ({ modelPath, pref }) => {
   const refContainer = useRef<HTMLDivElement | null>(null);
   const modelRef = useRef<THREE.Group | null>(null);
 
@@ -19,7 +18,6 @@ const Renderer: React.FC<Props> = ({ modelPath, texturePath, meshName }) => {
     if (!refContainer.current) return;
 
     const modelUrl = new URL(assetsPathPrefix + modelPath, import.meta.url);
-    const textureUrl = new URL(assetsPathPrefix + texturePath, import.meta.url);
     const ambientLight = new THREE.AmbientLight(0xFFFFFF, 1);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -33,7 +31,7 @@ const Renderer: React.FC<Props> = ({ modelPath, texturePath, meshName }) => {
     scene.add(directionalLight);
 
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 5000);
-    camera.position.set(4, 2.5, 4);
+    camera.position.set(2, 1, 2);
 
     const orbit = new OrbitControls(camera, renderer.domElement);
     orbit.update();
@@ -44,24 +42,26 @@ const Renderer: React.FC<Props> = ({ modelPath, texturePath, meshName }) => {
       const model = gltf.scene;
       modelRef.current = model;
 
-      model.position.set(1.5, -0.2, 1.5);
+      model.position.set(0, 0, 0);
       scene.add(model);
 
-      const material1 = new THREE.MeshStandardMaterial();
+      pref.forEach(x => {
+        const material1 = new THREE.MeshStandardMaterial();
+        const mesh = model.getObjectByName(x.meshName) as THREE.Mesh;
+        if (mesh) {
+          mesh.material = material1;
 
-      const mesh = model.getObjectByName(meshName) as THREE.Mesh;
-      if (mesh) {
-        mesh.material = material1;
+          const textureLoader = new THREE.TextureLoader();
+          const textureUrl = new URL(assetsPathPrefix + x.selectedTextures, import.meta.url);
+          const texture = textureLoader.load(textureUrl.href);
+          texture.wrapS = THREE.RepeatWrapping;
+          texture.wrapT = THREE.RepeatWrapping;
+          texture.repeat.set(1, 1);
+          material1.map = texture;
+          material1.needsUpdate = true;
+        }
+      })
 
-        const textureLoader = new THREE.TextureLoader();
-        const texture = textureLoader.load(textureUrl.href);
-        texture.wrapS = THREE.RepeatWrapping;
-        texture.wrapT = THREE.RepeatWrapping;
-        texture.repeat.set(1, 1);
-
-        material1.map = texture;
-        material1.needsUpdate = true;
-      }
     }, undefined, function (error) {
       console.error(error);
     });
@@ -70,7 +70,7 @@ const Renderer: React.FC<Props> = ({ modelPath, texturePath, meshName }) => {
       if (modelRef.current) {
         modelRef.current.rotation.y += 0.002;
       }
-      
+
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     }
@@ -82,7 +82,7 @@ const Renderer: React.FC<Props> = ({ modelPath, texturePath, meshName }) => {
       renderer.dispose();
       refContainer.current?.removeChild(renderer.domElement);
     };
-  }, [texturePath, modelPath]);
+  }, [pref, modelPath]);
 
   return (
     <div ref={refContainer}></div>

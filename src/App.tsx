@@ -5,14 +5,27 @@ import modelsJson from './models/models.json';
 import { Model } from './models/model';
 
 function App() {
-  const model: Model = modelsJson[0] as Model;
-  const [selectedTexture, setSelectedTexture] = useState(model.sections[0].textures[0].path);
-  const [selectedMesh, setSelectedMesh] = useState(model.sections[0].meshName);
-  
+  const model: Model = modelsJson.find(x => x.name === 'GreenChair.glb') as Model;
+  const [preference, SetPreference] = useState(
+    model.sections.map((section) => {
+      const selectedTexture = section.textures.length > 0 ? section.textures[0].path : '';
+      return {
+        meshName: section.meshName,
+        selectedTextures: selectedTexture,
+      };
+    })
+  );
 
   function onChange(mesh, texturePath) {
-    setSelectedMesh(mesh);
-    setSelectedTexture(texturePath);
+    console.log(preference);
+
+    SetPreference((x) =>
+      x.map((preference) =>
+        preference.meshName === mesh
+          ? { ...preference, selectedTextures: texturePath }
+          : preference
+      )
+    );
   }
 
   return (
@@ -42,7 +55,7 @@ function App() {
         ))}
       </div>
       <div className="renderer-container">
-        <Renderer modelPath={model.name} texturePath={selectedTexture} meshName={selectedMesh} />
+        <Renderer modelPath={model.name} pref={preference} />
       </div>
     </div>
   );

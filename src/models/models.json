@@ -40,5 +40,68 @@
         ]
       }
     ]
+  },
+  {
+    "name": "GreenChair.glb",
+    "sections": [
+      {
+        "description": "Frame",
+        "meshName": "frame",
+        "textures": [
+          {
+            "name": "Dark Wood",
+            "path": "dark-wood.jpg",
+            "thumbnailPath": "src/assets/dark-wood.jpg"
+          },
+          {
+            "name": "Light Wood",
+            "path": "light-wood.jpg",
+            "thumbnailPath": "src/assets/light-wood.jpg"
+          },
+          {
+            "name": "White wood",
+            "path": "white-wood.jpg",
+            "thumbnailPath": "src/assets/white-wood.jpg"
+          }
+        ]
+      },
+      {
+        "description": "Cushions",
+        "meshName": "upper_cushion",
+        "textures": [
+          {
+            "name": "Red Pattern",
+            "path": "red-pattern.jpg",
+            "thumbnailPath": "src/assets/red-pattern.jpg"
+          },
+          {
+            "name": "Green Linen",
+            "path": "green-pattern.jpg",
+            "thumbnailPath": "src/assets/green-pattern.jpg"
+          }
+        ]
+      },
+      {
+        "description": "Badges",
+        "meshName": "metal_badges",
+        "textures": [
+          {
+            "name": "Black (Matt)",
+            "path": "black.jpg",
+            "thumbnailPath": "src/assets/black.jpg"
+          },
+          {
+            "name": "Silver",
+            "path": "silver.jpg",
+            "thumbnailPath": "src/assets/silver.jpg"
+          },
+          {
+            "name": "Gold",
+            "path": "gold.jpg",
+            "thumbnailPath": "src/assets/gold.jpg"
+          }
+        ]
+      }
+    ]
   }
 ]
