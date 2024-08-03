@@ -46,19 +46,20 @@ const Renderer: React.FC<Props> = ({ modelPath, pref }) => {
       scene.add(model);
 
       pref.forEach(x => {
-        const material1 = new THREE.MeshStandardMaterial();
         const mesh = model.getObjectByName(x.meshName) as THREE.Mesh;
         if (mesh) {
-          mesh.material = material1;
-
           const textureLoader = new THREE.TextureLoader();
           const textureUrl = new URL(assetsPathPrefix + x.selectedTextures, import.meta.url);
           const texture = textureLoader.load(textureUrl.href);
           texture.wrapS = THREE.RepeatWrapping;
           texture.wrapT = THREE.RepeatWrapping;
-          texture.repeat.set(1, 1);
-          material1.map = texture;
-          material1.needsUpdate = true;
+          texture.repeat.set(2, 2);
+
+          const material = new THREE.MeshStandardMaterial();
+          material.map = texture;
+
+          mesh.material = material;
+          material.needsUpdate = true;
         }
       })
 
