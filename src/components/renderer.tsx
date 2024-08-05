@@ -2,15 +2,16 @@ import * as THREE from 'three';
 import { useEffect, useRef } from "react";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { Model } from '../models/model';
 
 interface Props {
-  modelPath: string;
+  selectedModel: Model;
   pref: any[]
 }
 
 const assetsPathPrefix: string = '../assets/';
 
-const Renderer: React.FC<Props> = ({ modelPath, pref }) => {
+const Renderer: React.FC<Props> = ({ selectedModel, pref }) => {
   const refContainer = useRef<HTMLDivElement | null>(null);
   const modelRef = useRef<THREE.Group | null>(null);
   const stopSpinningRef = useRef<boolean>(false);
@@ -18,7 +19,7 @@ const Renderer: React.FC<Props> = ({ modelPath, pref }) => {
   useEffect(() => {
     if (!refContainer.current) return;
 
-    const modelUrl = new URL(assetsPathPrefix + modelPath, import.meta.url);
+    const modelUrl = new URL(assetsPathPrefix + selectedModel.name, import.meta.url);
     const ambientLight = new THREE.AmbientLight(0xFFFFFF, 1);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -32,7 +33,11 @@ const Renderer: React.FC<Props> = ({ modelPath, pref }) => {
     scene.add(directionalLight);
 
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 5000);
-    camera.position.set(2, 1, 2);
+    camera.position.set(
+      selectedModel.cameraPosition.x,
+      selectedModel.cameraPosition.y,
+      selectedModel.cameraPosition.z
+    );
 
     const orbit = new OrbitControls(camera, renderer.domElement);
     orbit.update();
@@ -51,7 +56,11 @@ const Renderer: React.FC<Props> = ({ modelPath, pref }) => {
       const model = gltf.scene;
       modelRef.current = model;
 
-      model.position.set(0, 0, 0);
+      model.position.set(
+        selectedModel.modelPosition.x,
+        selectedModel.modelPosition.y,
+        selectedModel.modelPosition.z
+      );
       scene.add(model);
 
       pref.forEach(x => {
@@ -92,7 +101,7 @@ const Renderer: React.FC<Props> = ({ modelPath, pref }) => {
       renderer.dispose();
       refContainer.current?.removeChild(renderer.domElement);
     };
-  }, [pref, modelPath]);
+  }, [pref, selectedModel.name]);
 
   return (
     <div ref={refContainer}></div>

@@ -1,6 +1,16 @@
 [
   {
     "name": "old-chair.glb",
+    "cameraPosition": {
+      "x": 2,
+      "y": 1,
+      "z": 2
+    },
+    "modelPosition": {
+      "x": -3,
+      "y": -1.5,
+      "z": -3
+    },
     "sections": [
       {
         "description": "Frame",
@@ -43,6 +53,16 @@
   },
   {
     "name": "GreenChair.glb",
+    "cameraPosition": {
+      "x": 2,
+      "y": 1,
+      "z": 2
+    },
+    "modelPosition": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "sections": [
       {
         "description": "Frame",
