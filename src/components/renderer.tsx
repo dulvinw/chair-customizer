@@ -13,6 +13,7 @@ const assetsPathPrefix: string = '../assets/';
 const Renderer: React.FC<Props> = ({ modelPath, pref }) => {
   const refContainer = useRef<HTMLDivElement | null>(null);
   const modelRef = useRef<THREE.Group | null>(null);
+  const stopSpinningRef = useRef<boolean>(false);
 
   useEffect(() => {
     if (!refContainer.current) return;
@@ -35,6 +36,14 @@ const Renderer: React.FC<Props> = ({ modelPath, pref }) => {
 
     const orbit = new OrbitControls(camera, renderer.domElement);
     orbit.update();
+
+    orbit.addEventListener('start', () => {
+      stopSpinningRef.current = true;
+    });
+
+    orbit.addEventListener('end', () => {
+      stopSpinningRef.current = false;
+    });
 
     refContainer.current.appendChild(renderer.domElement);
     const assetLoader = new GLTFLoader();
@@ -68,7 +77,7 @@ const Renderer: React.FC<Props> = ({ modelPath, pref }) => {
     });
 
     function animate() {
-      if (modelRef.current) {
+      if (modelRef.current && !stopSpinningRef.current) {
         modelRef.current.rotation.y += 0.002;
       }
 
