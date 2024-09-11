@@ -5,7 +5,7 @@ import modelsJson from './models/models.json';
 import { Model } from './models/model';
 
 function App() {
-  const [selectedModelName, setSelectedModelName] = useState(modelsJson[1].name);
+  const [selectedModelName, setSelectedModelName] = useState(modelsJson[0].name);
   const selectedModel: Model = modelsJson.find(x => x.name === selectedModelName) as Model;
 
   const [preference, setPreference] = useState(
@@ -45,7 +45,7 @@ function App() {
   }
 
   return (
-    <>
+    <div>
       <div className="dropdown-container">
         <label htmlFor="model-select">Select a chair: </label>
         <select id="model-select" value={selectedModelName} onChange={handleModelChange}>
@@ -83,7 +83,7 @@ function App() {
           <Renderer selectedModel={selectedModel} pref={preference} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

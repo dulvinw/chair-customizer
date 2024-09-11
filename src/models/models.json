@@ -1,124 +1,56 @@
 [
   {
-    "name": "old-chair.glb",
+    "name": "victorian_chair.glb",
     "cameraPosition": {
-      "x": 2,
-      "y": 1,
-      "z": 2
-    },
-    "modelPosition": {
-      "x": -3,
-      "y": -1.5,
-      "z": -3
-    },
-    "sections": [
-      {
-        "description": "Frame",
-        "meshName": "mesh_0",
-        "textures": [
-          {
-            "name": "Texture 1",
-            "path": "texture1.jpg",
-            "thumbnailPath": "src/assets/texture1.jpg"
-          },
-          {
-            "name": "Texture 2",
-            "path": "texture2.jpg",
-            "thumbnailPath": "src/assets/texture2.jpg"
-          },
-          {
-            "name": "Texture 3",
-            "path": "texture3.jpg",
-            "thumbnailPath": "src/assets/texture3.jpg"
-          }
-        ]
-      },
-      {
-        "description": "Cushions",
-        "meshName": "mesh_0",
-        "textures": [
-          {
-            "name": "Texture 1",
-            "path": "texture1.jpg",
-            "thumbnailPath": "src/assets/texture1.jpg"
-          },
-          {
-            "name": "Texture 2",
-            "path": "texture2.jpg",
-            "thumbnailPath": "src/assets/texture2.jpg"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "GreenChair.glb",
-    "cameraPosition": {
-      "x": 2,
-      "y": 1,
-      "z": 2
+      "x": 1.8,
+      "y": 0.8,
+      "z": 1.8
     },
     "modelPosition": {
       "x": 0,
-      "y": 0,
+      "y": -0.5,
       "z": 0
     },
     "sections": [
       {
-        "description": "Frame",
-        "meshName": "frame",
+        "description": "Choose Frame",
+        "meshName": "victorian_chair_wood_wood_0",
         "textures": [
           {
             "name": "Dark Wood",
-            "path": "dark-wood.jpg",
-            "thumbnailPath": "src/assets/dark-wood.jpg"
+            "path": "wood-dark.png",
+            "thumbnailPath": "src/assets/wood-dark-thumbnail.png"
           },
           {
             "name": "Light Wood",
-            "path": "light-wood.jpg",
-            "thumbnailPath": "src/assets/light-wood.jpg"
+            "path": "wood-light.png",
+            "thumbnailPath": "src/assets/wood-light-thumbnail.png"
           },
           {
-            "name": "White wood",
-            "path": "white-wood.jpg",
-            "thumbnailPath": "src/assets/white-wood.jpg"
+            "name": "Red Wood",
+            "path": "wood-red.png",
+            "thumbnailPath": "src/assets/wood-red-thumbnail.png"
           }
         ]
       },
       {
-        "description": "Cushions",
-        "meshName": "upper_cushion",
+        "description": "Choose Fabric",
+        "meshName": "victorian_chair_cloth_cloth_0",
         "textures": [
           {
-            "name": "Red Pattern",
-            "path": "red-pattern.jpg",
-            "thumbnailPath": "src/assets/red-pattern.jpg"
+            "name": "Pure Gold",
+            "path": "cloth-gold.png",
+            "thumbnailPath": "src/assets/cloth-gold-thumbnail.png"
           },
           {
-            "name": "Green Linen",
-            "path": "green-pattern.jpg",
-            "thumbnailPath": "src/assets/green-pattern.jpg"
-          }
-        ]
-      },
-      {
-        "description": "Badges",
-        "meshName": "metal_badges",
-        "textures": [
-          {
-            "name": "Black (Matt)",
-            "path": "black.jpg",
-            "thumbnailPath": "src/assets/black.jpg"
+            "name": "Reddish Gold",
+            "path": "cloth-red.png",
+            "thumbnailPath": "src/assets/cloth-red-thumbnail.png"
           },
           {
-            "name": "Silver",
-            "path": "silver.jpg",
-            "thumbnailPath": "src/assets/silver.jpg"
-          },
-          {
-            "name": "Gold",
-            "path": "gold.jpg",
-            "thumbnailPath": "src/assets/gold.jpg"
+            "name": "Bluish Golden",
+            "path": "cloth-blue.png",
+            "thumbnailPath": "src/assets/cloth-blue-thumbnail.png"
           }
         ]
       }
