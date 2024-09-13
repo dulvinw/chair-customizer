@@ -1,6 +1,6 @@
 import {ChangeEvent, useEffect, useState} from 'react';
 import './App.css';
-import Renderer from './components/renderer';
+import Renderer from './components/Renderer.tsx';
 import modelsJson from './models/models.json';
 import {Model} from './models/model';
 import {Preferences} from "./Preferences.tsx";
