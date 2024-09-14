@@ -4,6 +4,7 @@ import {Group, Scene} from "three";
 import {Model} from "../models/model.ts";
 import {IPreferences} from "../App.tsx";
 import {GLTF, GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
+import { cloneDeep } from 'lodash';
 
 export const setupAssetLoader = (modelUrl: URL, modelRef: React.MutableRefObject<Group | null>, selectedModel: Model, scene: Scene, pref: IPreferences[]) => {
     const assetLoader = new GLTFLoader();
@@ -30,7 +31,7 @@ export const setupAssetLoader = (modelUrl: URL, modelRef: React.MutableRefObject
         const replaceTexture = (mesh, newTextureURL) => {
             if (mesh.material.map) {
                 textureLoader.load(newTextureURL, (newTexture) => {
-                    const oldTexture = mesh.material.map;
+                    const oldTexture = cloneDeep(mesh.material.map);
                     oldTexture.image = newTexture.image;
                     mesh.material.map = oldTexture;
                     mesh.material.needsUpdate = true;
