@@ -44,7 +44,7 @@ export const setupAssetLoader = (modelUrl: URL, modelRef: React.MutableRefObject
             const mesh = model.getObjectByName(x.meshName) as THREE.Mesh;
             if (mesh) {
                 const texturePath = pref.find(x => x.meshName === mesh.userData.name).selectedTextures;
-                replaceTexture(mesh, 'src/assets/' + texturePath);
+                replaceTexture(mesh, 'assets/' + texturePath);
                 console.log(texturePath, mesh.userData.name);
             }
         });

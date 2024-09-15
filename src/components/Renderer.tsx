@@ -10,16 +10,16 @@ interface Props {
     pref: IPreferences[]
 }
 
-const ASSET_PATH_PREFIX: string = '../assets/';
+const ASSET_PATH_PREFIX: string = '/assets/';
 
 const Renderer: React.FC<Props> = ({selectedModel, pref}) => {
     const refContainer = useRef<HTMLDivElement | null>(null);
     const modelRef = useRef<THREE.Group | null>(null);
     const stopSpinningRef = useRef<boolean>(false);
-    const modelUrl = new URL(ASSET_PATH_PREFIX + selectedModel.name, import.meta.url);
 
     useEffect(() => {
         if (!refContainer.current) return;
+        const modelUrl = new URL(ASSET_PATH_PREFIX + selectedModel.name, import.meta.url);
 
         const scene = new THREE.Scene();
         const camera = getCamera(selectedModel);
@@ -61,7 +61,7 @@ const Renderer: React.FC<Props> = ({selectedModel, pref}) => {
             renderer.dispose();
             currentRef.removeChild(renderer.domElement);
         };
-    }, [modelUrl, pref, selectedModel]);
+    }, [pref, selectedModel]);
 
     return (
         <div ref={refContainer}></div>

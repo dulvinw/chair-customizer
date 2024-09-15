@@ -19,17 +19,17 @@
           {
             "name": "Dark Wood",
             "path": "wood-dark.png",
-            "thumbnailPath": "src/assets/wood-dark-thumbnail.png"
+            "thumbnailPath": "assets/wood-dark-thumbnail.png"
           },
           {
             "name": "Light Wood",
             "path": "wood-light.png",
-            "thumbnailPath": "src/assets/wood-light-thumbnail.png"
+            "thumbnailPath": "assets/wood-light-thumbnail.png"
           },
           {
             "name": "Red Wood",
             "path": "wood-red.png",
-            "thumbnailPath": "src/assets/wood-red-thumbnail.png"
+            "thumbnailPath": "assets/wood-red-thumbnail.png"
           }
         ]
       },
@@ -40,17 +40,17 @@
           {
             "name": "Pure Gold",
             "path": "cloth-gold.png",
-            "thumbnailPath": "src/assets/cloth-gold-thumbnail.png"
+            "thumbnailPath": "assets/cloth-gold-thumbnail.png"
           },
           {
             "name": "Reddish Gold",
             "path": "cloth-red.png",
-            "thumbnailPath": "src/assets/cloth-red-thumbnail.png"
+            "thumbnailPath": "assets/cloth-red-thumbnail.png"
           },
           {
             "name": "Bluish Golden",
             "path": "cloth-blue.png",
-            "thumbnailPath": "src/assets/cloth-blue-thumbnail.png"
+            "thumbnailPath": "assets/cloth-blue-thumbnail.png"
           }
         ]
       }
