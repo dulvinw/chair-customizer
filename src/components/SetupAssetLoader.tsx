@@ -3,7 +3,7 @@ import * as THREE from "three";
 import {Group, Scene} from "three";
 import {Model} from "../models/model.ts";
 import {IPreferences} from "../App.tsx";
-import {GLTF, GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
+import {GLTF, GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
 import { cloneDeep } from 'lodash';
 
 export const setupAssetLoader = (modelUrl: URL, modelRef: React.MutableRefObject<Group | null>, selectedModel: Model, scene: Scene, pref: IPreferences[]) => {

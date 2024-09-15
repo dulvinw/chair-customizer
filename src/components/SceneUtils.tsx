@@ -2,7 +2,7 @@ import * as THREE from "three";
 import {PerspectiveCamera, Scene, WebGLRenderer} from "three";
 import React from "react";
 import {Model} from "../models/model.ts";
-import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 
 export const setupOrbit = (camera: PerspectiveCamera, renderer: WebGLRenderer, stopSpinningRef: React.MutableRefObject<boolean>) => {
     const orbit = new OrbitControls(camera, renderer.domElement);
